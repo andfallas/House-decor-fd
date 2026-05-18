@@ -1,6 +1,7 @@
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
 import { FadeIn } from '../components/FadeIn'
 import { PageTransition } from '../components/PageTransition'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 // WhatsApp: +56 9 7774 1324
 const WA_NUMBER = '56977741324'
@@ -26,6 +27,7 @@ const DELIVERY = [
 ]
 
 export function Nosotros() {
+  usePageMeta('Nosotros', 'Conocé la historia de House Decor FD. Fabricamos muebles de dormitorio tapizados a medida en Chile con materiales premium.')
   return (
     <PageTransition>
     <div>

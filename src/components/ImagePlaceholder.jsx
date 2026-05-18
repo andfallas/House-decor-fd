@@ -5,7 +5,7 @@ const RATIOS = {
   '1/1': { paddingBottom: '100%' },
 }
 
-export function ImagePlaceholder({ label, src, ratio = '4/5', fit = 'cover', className = '', style = {} }) {
+export function ImagePlaceholder({ label, src, ratio = '4/5', fit = 'cover', loading = 'lazy', className = '', style = {} }) {
   const pad = RATIOS[ratio] || RATIOS['4/5']
 
   return (
@@ -17,6 +17,8 @@ export function ImagePlaceholder({ label, src, ratio = '4/5', fit = 'cover', cla
         <img
           src={src}
           alt={label}
+          loading={loading}
+          decoding="async"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: fit }}
         />
       ) : (

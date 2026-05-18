@@ -183,6 +183,8 @@ export function ProductModal({ product, isOpen, onClose }) {
                     <img
                       src={product.image}
                       alt={product.name}
+                      loading="eager"
+                      decoding="async"
                       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }}
                     />
                   ) : (
@@ -230,9 +232,9 @@ export function ProductModal({ product, isOpen, onClose }) {
                         Características
                       </p>
                       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        {product.characteristics.map((item, i) => (
+                        {product.characteristics.map((item) => (
                           <li
-                            key={i}
+                            key={item}
                             style={{
                               display: 'flex',
                               alignItems: 'flex-start',
@@ -270,8 +272,8 @@ export function ProductModal({ product, isOpen, onClose }) {
                         Precios
                       </p>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
-                        {product.prices.map((p, i) => (
-                          <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                        {product.prices.map((p) => (
+                          <div key={p.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                             <span style={{ fontSize: '0.875rem', color: '#6B4F3A' }}>{p.label}</span>
                             <span style={{ fontSize: '1rem', fontWeight: 600, color: '#1A0F07' }}>{p.value}</span>
                           </div>

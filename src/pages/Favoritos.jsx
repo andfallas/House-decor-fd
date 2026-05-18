@@ -5,6 +5,7 @@ import { products } from '../data/products'
 import { ProductCard } from '../components/ProductCard'
 import { FadeIn } from '../components/FadeIn'
 import { PageTransition } from '../components/PageTransition'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 // WhatsApp: +56 9 7774 1324
 const WA_NUMBER = '56977741324'
@@ -12,6 +13,7 @@ const WA_NUMBER = '56977741324'
 const section = { maxWidth: '80rem', margin: '0 auto', padding: '0 1.25rem' }
 
 export function Favoritos() {
+  usePageMeta('Mis favoritos', 'Tus muebles guardados en House Decor FD. Cotizalos todos juntos por WhatsApp.')
   const { favorites } = useFavorites()
   const { getFabric } = useSelectedFabrics()
   const navigate = useNavigate()

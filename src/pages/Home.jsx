@@ -6,6 +6,7 @@ import { ImagePlaceholder } from '../components/ImagePlaceholder'
 import { ProductCard } from '../components/ProductCard'
 import { FadeIn } from '../components/FadeIn'
 import { PageTransition } from '../components/PageTransition'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 // WhatsApp: +56 9 7774 1324
 const WA_NUMBER = '56977741324'
@@ -125,6 +126,7 @@ function CategoryCard({ cat }) {
 }
 
 export function Home() {
+  usePageMeta(null, 'Muebles de dormitorio tapizados a medida: respaldos de cama, camas completas, baúles, banquetas y puffs. Fabricados en Chile con telas premium.')
   const featured = products.slice(0, 4)
   const imgRef = useRef(null)
   const prefersReduced = useReducedMotion()

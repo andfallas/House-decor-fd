@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { FadeIn } from '../components/FadeIn'
 import { PageTransition } from '../components/PageTransition'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 // WhatsApp: +56 9 7774 1324
 const WA_NUMBER = '56977741324'
@@ -40,6 +41,7 @@ const labelStyle = {
 }
 
 export function Contacto() {
+  usePageMeta('Contacto', 'Contactá a House Decor FD para cotizar tus muebles de dormitorio tapizados a medida. Respondemos a la brevedad.')
   const location = useLocation()
   const prefill = location.state?.prefill || ''
 
@@ -172,10 +174,11 @@ export function Contacto() {
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
-                <label style={labelStyle}>
+                <label htmlFor="nombre" style={labelStyle}>
                   Nombre <span style={{ color: '#2C1A0E' }}>*</span>
                 </label>
                 <input
+                  id="nombre"
                   type="text"
                   name="nombre"
                   required
@@ -189,10 +192,11 @@ export function Contacto() {
               </div>
 
               <div>
-                <label style={labelStyle}>
+                <label htmlFor="email" style={labelStyle}>
                   Email <span style={{ color: '#2C1A0E' }}>*</span>
                 </label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   required
@@ -206,13 +210,14 @@ export function Contacto() {
               </div>
 
               <div>
-                <label style={labelStyle}>
+                <label htmlFor="telefono" style={labelStyle}>
                   Teléfono{' '}
                   <span style={{ color: '#D4C9BB', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>
                     (opcional)
                   </span>
                 </label>
                 <input
+                  id="telefono"
                   type="tel"
                   name="telefono"
                   value={form.telefono}
@@ -225,8 +230,9 @@ export function Contacto() {
               </div>
 
               <div>
-                <label style={labelStyle}>Producto de interés</label>
+                <label htmlFor="producto" style={labelStyle}>Producto de interés</label>
                 <select
+                  id="producto"
                   name="producto"
                   value={form.producto}
                   onChange={handleChange}
@@ -242,8 +248,9 @@ export function Contacto() {
               </div>
 
               <div>
-                <label style={labelStyle}>Mensaje</label>
+                <label htmlFor="mensaje" style={labelStyle}>Mensaje</label>
                 <textarea
+                  id="mensaje"
                   name="mensaje"
                   rows={5}
                   value={form.mensaje}

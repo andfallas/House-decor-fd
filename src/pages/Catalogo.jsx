@@ -3,10 +3,12 @@ import { products, categories } from '../data/products'
 import { ProductCard } from '../components/ProductCard'
 import { FadeIn } from '../components/FadeIn'
 import { PageTransition } from '../components/PageTransition'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const section = { maxWidth: '80rem', margin: '0 auto', padding: '0 1.25rem' }
 
 export function Catalogo() {
+  usePageMeta('Catálogo', 'Explorá nuestro catálogo de muebles de dormitorio tapizados a medida. Respaldos, camas completas, baúles, banquetas y puffs.')
   const [searchParams, setSearchParams] = useSearchParams()
   const activeSlug = searchParams.get('categoria') || 'todos'
 

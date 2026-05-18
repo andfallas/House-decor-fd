@@ -47,8 +47,9 @@ export function ProductCard({ product }) {
         {/* Clickable area: image + info text → opens modal */}
         <div
           onClick={() => setModalOpen(true)}
-          onKeyDown={e => e.key === 'Enter' && setModalOpen(true)}
+          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setModalOpen(true) } }}
           role="button"
+          aria-label={`Ver detalles de ${product.name}`}
           tabIndex={0}
           style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', flex: 1, outline: 'none' }}
         >

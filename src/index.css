@@ -46,3 +46,10 @@ body {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+/* Accesibilidad: indicador de foco visible para navegación por teclado */
+:focus-visible {
+  outline: 2px solid #2C1A0E;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
