@@ -7,6 +7,7 @@ import { ProductCard } from '../components/ProductCard'
 import { FadeIn } from '../components/FadeIn'
 import { PageTransition } from '../components/PageTransition'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useOverlayActive, OVERLAY_DURATION } from '../components/LoadingOverlay'
 
 // WhatsApp: +56 9 7774 1324
 const WA_NUMBER = '56977741324'
@@ -132,6 +133,8 @@ export function Home() {
   const featured = products.slice(0, 4)
   const imgRef = useRef(null)
   const prefersReduced = useReducedMotion()
+  const overlayActive = useOverlayActive()
+  const od = (!prefersReduced && overlayActive) ? OVERLAY_DURATION / 1000 : 0
 
   useEffect(() => {
     if (prefersReduced) return
@@ -170,7 +173,7 @@ export function Home() {
             <motion.p
               initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: od }}
               style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(245,240,232,0.5)', fontWeight: 500, marginBottom: '1.25rem' }}
             >
               100% A MEDIDA
@@ -179,7 +182,7 @@ export function Home() {
               className="font-hero"
               initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: od + 0.15 }}
               style={{ fontSize: 'clamp(2.75rem, 6vw, 5rem)', color: '#F5F0E8', lineHeight: 1.05 }}
             >
               Muebles de dormitorio hechos para vos.
@@ -187,7 +190,7 @@ export function Home() {
             <motion.p
               initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: od + 0.3 }}
               style={{ marginTop: '1.5rem', fontSize: '1.0625rem', color: 'rgba(245,240,232,0.75)', lineHeight: 1.7, maxWidth: '30rem' }}
               className="hero-subtitle"
             >
@@ -196,7 +199,7 @@ export function Home() {
             <motion.div
               initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.45 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: od + 0.45 }}
               style={{ marginTop: '2.25rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}
               className="hero-buttons"
             >

@@ -1,7 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useOverlayActive, OVERLAY_DURATION } from './LoadingOverlay'
 
 export function FadeIn({ children, className = '', delay = 0 }) {
   const prefersReduced = useReducedMotion()
+  const overlayActive = useOverlayActive()
+
+  const overlayDelay = (!prefersReduced && overlayActive) ? OVERLAY_DURATION / 1000 : 0
 
   return (
     <motion.div
@@ -12,7 +16,7 @@ export function FadeIn({ children, className = '', delay = 0 }) {
       transition={
         prefersReduced
           ? { duration: 0 }
-          : { duration: 0.5, ease: 'easeOut', delay: delay / 1000 }
+          : { duration: 0.5, ease: 'easeOut', delay: overlayDelay + delay / 1000 }
       }
     >
       {children}
