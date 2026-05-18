@@ -21,9 +21,11 @@ const FEATURED_CATEGORIES = [
 ]
 
 const MATERIALS = [
-  { name: 'Lino', color: '#C4B49A', desc: 'Textura natural, repelente al agua. Look sofisticado y atemporal.' },
-  { name: 'Felpa', color: '#A89F9A', desc: 'Suavidad y confort. Ideal para ambientes cálidos y acogedores.' },
-  { name: 'Cuerina', color: '#8B6F5E', desc: 'Moderna y fácil de mantener. Resistente al uso diario.' },
+  { name: 'Lino', color: '#BFAF8C', desc: 'Tejido natural, repelente al agua. 37 colores disponibles.' },
+  { name: 'Lino Afelpado', color: '#BE9E68', desc: 'Textura más densa y suave. Repelente al agua. 9 colores.' },
+  { name: 'Felpa', color: '#BF7E3E', desc: 'Terciopelo suave al tacto, repelente al agua. La mayor variedad: 34 colores.' },
+  { name: 'Boucle', color: '#C2B290', desc: 'Tela premium de textura rizada. 10 tonos neutros de alta calidad.' },
+  { name: 'Efecto Cuero', color: '#9C7050', desc: 'Cuerina premium. 18 colores. Fácil de limpiar con paño húmedo.' },
 ]
 
 const STEPS = [
@@ -304,7 +306,7 @@ export function Home() {
                 Los materiales que usamos
               </h2>
               <p style={{ color: '#D4C9BB', fontSize: '1rem', marginBottom: '3.5rem', maxWidth: '28rem' }}>
-                Todos nuestros muebles se tapan a elección en uno de estos tres materiales.
+                Cinco colecciones de telas para que elijas el look y la textura que más se adapta a tu estilo.
               </p>
             </FadeIn>
             <motion.div
@@ -433,6 +435,9 @@ export function Home() {
             .products-grid-4 { grid-template-columns: repeat(2, 1fr); }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .materials-grid { grid-template-columns: repeat(3, 1fr); }
+          @media (min-width: 1024px) {
+            .materials-grid { grid-template-columns: repeat(5, 1fr); }
+          }
             .desktop-only { display: block; }
           }
           @media (min-width: 1024px) {

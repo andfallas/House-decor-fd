@@ -11,14 +11,16 @@ const section = { maxWidth: '80rem', margin: '0 auto', padding: '0 1.25rem' }
 
 const PHILOSOPHY = [
   { title: 'Minimalismo elegante', desc: 'Líneas limpias, sin exceso. Cada mueble tiene lo que necesita y nada más.' },
-  { title: 'Materiales nobles', desc: 'Lino, felpa, cuerina premium y madera maciza. Materiales que duran y se ven mejor con el tiempo.' },
+  { title: 'Materiales nobles', desc: 'Lino, lino afelpado, felpa, boucle y efecto cuero. Cinco colecciones con más de 100 colores para elegir.' },
   { title: 'Cada pieza es única', desc: 'Fabricamos tu mueble desde cero, a partir de tus medidas y tus elecciones. Nada predefinido.' },
 ]
 
 const MATERIAL_TABLE = [
-  { name: 'Lino', textura: 'Tejido natural, ligero', mantenimiento: 'Repelente al agua, limpieza fácil', estilo: 'Clásico y atemporal' },
-  { name: 'Felpa', textura: 'Suave y aterciopelada', mantenimiento: 'Aspirar suavemente', estilo: 'Cálido y acogedor' },
-  { name: 'Cuerina', textura: 'Lisa y resistente', mantenimiento: 'Paño húmedo', estilo: 'Moderno y urbano' },
+  { name: 'Lino',          colores: 37, textura: 'Tejido natural, ligero',         mantenimiento: 'Repelente al agua, paño húmedo', estilo: 'Clásico y atemporal' },
+  { name: 'Lino Afelpado', colores: 9,  textura: 'Lino con acabado suave y denso', mantenimiento: 'Repelente al agua, paño húmedo', estilo: 'Neutro y elegante' },
+  { name: 'Felpa',         colores: 34, textura: 'Terciopelo suave al tacto',       mantenimiento: 'Repelente al agua, aspirar',     estilo: 'Cálido y acogedor' },
+  { name: 'Boucle',        colores: 10, textura: 'Rizado y voluminoso, premium',    mantenimiento: 'Aspirar con suavidad',           estilo: 'Contemporáneo y sofisticado' },
+  { name: 'Efecto Cuero',  colores: 18, textura: 'Lisa, resistente y compacta',     mantenimiento: 'Paño húmedo, muy fácil',         estilo: 'Moderno y urbano' },
 ]
 
 const DELIVERY = [
@@ -93,7 +95,7 @@ export function Nosotros() {
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #D4C9BB' }}>
-                  {['Material', 'Textura', 'Mantenimiento', 'Estilo recomendado'].map(h => (
+                  {['Material', 'Colores', 'Textura', 'Mantenimiento', 'Estilo recomendado'].map(h => (
                     <th
                       key={h}
                       style={{
@@ -116,10 +118,11 @@ export function Nosotros() {
               <tbody>
                 {MATERIAL_TABLE.map((row, i) => (
                   <tr key={row.name} style={{ borderBottom: '1px solid #D4C9BB', background: i % 2 !== 0 ? 'rgba(245,240,232,0.5)' : 'transparent' }}>
-                    <td className="font-subtitle" style={{ padding: '1rem 1.25rem 1rem 0', color: '#1A0F07', minWidth: '6rem' }}>
+                    <td className="font-subtitle" style={{ padding: '1rem 1.25rem 1rem 0', color: '#1A0F07', minWidth: '7rem' }}>
                       {row.name}
                     </td>
-                    <td style={{ padding: '1rem 1.25rem 1rem 0', color: '#6B4F3A', minWidth: '8rem' }}>{row.textura}</td>
+                    <td style={{ padding: '1rem 1.25rem 1rem 0', color: '#2C1A0E', fontWeight: 500, minWidth: '5rem' }}>{row.colores}</td>
+                    <td style={{ padding: '1rem 1.25rem 1rem 0', color: '#6B4F3A', minWidth: '10rem' }}>{row.textura}</td>
                     <td style={{ padding: '1rem 1.25rem 1rem 0', color: '#6B4F3A', minWidth: '10rem' }}>{row.mantenimiento}</td>
                     <td style={{ padding: '1rem 1.25rem 1rem 0', color: '#6B4F3A' }}>{row.estilo}</td>
                   </tr>
